@@ -14,7 +14,7 @@ class Ride
     @excitement = ride_details[:excitement]
     @total_revenue = 0
     @rider_log = Hash.new(0)
-    @total_rides = Hash.new(0)
+    @total_rides = 0
   end
 
   def board_rider(visitor)
@@ -39,7 +39,6 @@ class Ride
   end
 
   def add_ride_count
-    @total_rides[@name] += 1
-    @total_rides
+    @total_rides += 1
   end
 end

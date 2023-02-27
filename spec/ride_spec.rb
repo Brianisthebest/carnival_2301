@@ -90,9 +90,9 @@ RSpec.describe Ride do
 
   describe '@add_ride_count' do
     it 'adds to the count for each time ridden' do
-      expect(@ride1.add_ride_count).to eq('Carousel' => 1)
-      expect(@ride1.add_ride_count).to eq('Carousel' => 2)
-      expect(@ride2.add_ride_count).to eq('Ferris Wheel' => 1)
+      expect(@ride1.add_ride_count).to eq(1)
+      expect(@ride1.add_ride_count).to eq(2)
+      expect(@ride2.add_ride_count).to eq(1)
     end
   end
 end
