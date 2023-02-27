@@ -9,7 +9,8 @@ RSpec.describe Ride do
                         admission_fee: 1, 
                         excitement: :gentle 
                         })
-    @ride2 = Ride.new({ name: 'Ferris Wheel', min_height: 36, 
+    @ride2 = Ride.new({ name: 'Ferris Wheel', 
+                        min_height: 36, 
                         admission_fee: 5, 
                         excitement: :gentle
                         })
@@ -61,6 +62,29 @@ RSpec.describe Ride do
       expect(@visitor3.spending_money).to eq(13)
       expect(@ride3.rider_log).to eq({@visitor3 => 1})
       expect(@ride3.total_revenue).to eq(2)
+    end
+  end
+
+  describe '#has_preference' do
+    it ' makes sure visitor has preference of ride' do
+      @visitor1.add_preference(:gentle)
+      @visitor2.add_preference(:thrilling)
+      expect(@ride1.has_preference?(@visitor1)).to eq(true)
+      expect(@ride1.has_preference?(@visitor2)).to eq(false)
+    end
+  end
+
+  describe '#meets_height_requirement' do
+    it 'checks visitor height and height req of ride' do
+      expect(@ride3.meets_height_requirements(@visitor1)).to eq(true)
+      expect(@ride3.meets_height_requirements(@visitor2)).to eq(false)
+    end
+  end
+
+  describe '#take_payment' do
+    it 'takes payment from visitor' do
+      expect(@ride1.take_payment(@visitor1)).to eq(9)
+      expect(@ride1.take_payment(@visitor1)).to eq(8)
     end
   end
 end
