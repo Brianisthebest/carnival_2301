@@ -18,4 +18,8 @@ class Visitor
   def add_preference(preference)
     @preferences.push(preference)
   end
+
+  def tall_enough?(height_req)
+    height >= height_req
+  end
 end
