@@ -45,7 +45,7 @@ RSpec.describe Carnival do
 
   describe '#most_popular' do
     it 'returns the most popular ride' do
-      # It will sort through
+      # It will sort through ride
     end
   end
 end
