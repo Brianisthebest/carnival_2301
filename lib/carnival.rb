@@ -30,4 +30,10 @@ class Carnival
     @summary[:revenue_earned] = total_revenue
     @summary
   end
+
+  def riders_fav_ride
+    @rides.each do |ride|
+      require 'pry'; binding.pry
+    end
+  end
 end

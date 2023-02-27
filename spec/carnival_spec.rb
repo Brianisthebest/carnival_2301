@@ -104,5 +104,27 @@ RSpec.describe Carnival do
       expect(@carnival.summary).to eq({:visitor_count => 4, :revenue_earned => 5})
     end
   end
-  # then add list of visitors and their fav ride and money spent
+
+  describe '#riders_fav_ride' do
+    # 2. then add list of visitors and their fav ride and money spent
+    it 'lists the riders, the fav rides, and total amount spend on ride' do
+      # iterate over rides and then rider_log
+      # make a hash to lists riders => fav and money spent
+      @carnival.add_ride(@ride1)
+      @carnival.add_ride(@ride3)
+      @visitor1.add_preference(:gentle)
+      @visitor3.add_preference(:gentle)
+      @visitor3.add_preference(:thrilling)
+      @ride1.board_rider(@visitor1)
+      @ride1.board_rider(@visitor1)
+      @ride3.board_rider(@visitor3)
+      @ride3.board_rider(@visitor3)
+
+      expect(@carnival.riders_fav_ride).to eq({@rider1 => @ride1, @rider3 => @ride3})
+    end
+  end
+
 end
+
+# 3. then add list of rides and who rode each ride and the total rev
+# 4. calculate the total revenue of all carnivals
