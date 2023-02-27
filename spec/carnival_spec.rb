@@ -2,14 +2,16 @@ require 'rspec'
 require './lib/visitor'
 require './lib/ride'
 
-RSpec.describe Ride do
+RSpec.describe Carnival do
   before(:each) do
+    @carnival = Carnival.new('Wacky Tacky Carnival', 10)
     @ride1 = Ride.new({ name: 'Carousel', 
                         min_height: 24, 
                         admission_fee: 1, 
                         excitement: :gentle 
                         })
-    @ride2 = Ride.new({ name: 'Ferris Wheel', min_height: 36, 
+    @ride2 = Ride.new({ name: 'Ferris Wheel', 
+                        min_height: 36, 
                         admission_fee: 5, 
                         excitement: :gentle
                         })
@@ -23,5 +25,11 @@ RSpec.describe Ride do
     @visitor3 = Visitor.new('Penny', 64, '$15')
   end
 
-  
+  describe '#initialize' do
+    it 'exists and has attributes' do
+      expect(@carnival).to be_a(Carnival)
+      expect(@carnival.name).to eq('Wacky Tacky Carnival')
+      expect(@carnival.duration).to eq(10)
+    end
+  end
 end
