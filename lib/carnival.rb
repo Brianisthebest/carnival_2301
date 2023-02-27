@@ -32,8 +32,11 @@ class Carnival
   end
 
   def riders_fav_ride
+    rider_hash = Hash.new
     @rides.each do |ride|
-      require 'pry'; binding.pry
+      ride.rider_log.each do |rider, count|
+        # rider_hash[rider] = 
+      end
     end
   end
 end

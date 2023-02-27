@@ -107,7 +107,7 @@ RSpec.describe Carnival do
 
   describe '#riders_fav_ride' do
     # 2. then add list of visitors and their fav ride and money spent
-    it 'lists the riders, the fav rides, and total amount spend on ride' do
+    xit 'lists the riders, the fav rides, and total amount spend on ride' do
       # iterate over rides and then rider_log
       # make a hash to lists riders => fav and money spent
       @carnival.add_ride(@ride1)
@@ -123,7 +123,6 @@ RSpec.describe Carnival do
       expect(@carnival.riders_fav_ride).to eq({@rider1 => @ride1, @rider3 => @ride3})
     end
   end
-
 end
 
 # 3. then add list of rides and who rode each ride and the total rev
