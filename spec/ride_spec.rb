@@ -1,6 +1,6 @@
 require 'rspec'
 require './lib/visitor'
-require './lib/rise'
+require './lib/ride'
 
 RSpec.describe Ride do
   before(:each) do
