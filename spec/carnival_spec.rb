@@ -31,6 +31,21 @@ RSpec.describe Carnival do
       expect(@carnival).to be_a(Carnival)
       expect(@carnival.name).to eq('Wacky Tacky Carnival')
       expect(@carnival.duration).to eq(10)
+      expect(@carnival.rides).to eq([])
+    end
+  end
+
+  describe '#add_ride' do
+    it 'can add rides to the carnival' do
+      expect(@carnival.add_ride(@ride1)).to eq([@ride1])
+      expect(@carnival.add_ride(@ride2)).to eq([@ride1, @ride2])
+      expect(@carnival.add_ride(@ride3)).to eq([@ride1, @ride2, @ride3])
+    end
+  end
+
+  describe '#most_popular' do
+    it 'returns the most popular ride' do
+      # It will sort through
     end
   end
 end
