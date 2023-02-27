@@ -91,9 +91,18 @@ RSpec.describe Carnival do
 
   describe '#summary_hash' do
     it 'returns a hash for the summary' do
+      @carnival.add_ride(@ride1)
+      @carnival.add_ride(@ride3)
+      @visitor1.add_preference(:gentle)
+      @visitor3.add_preference(:gentle)
+      @visitor3.add_preference(:thrilling)
+      @ride1.board_rider(@visitor1)
+      @ride1.board_rider(@visitor3)
+      @ride1.board_rider(@visitor1)
+      @ride3.board_rider(@visitor3)
       # visitor_count => interger
       # revenue_earned => amount
-      # list of visitors =>
+      expect(@carnival.summary).to eq(:visitor_count => 3, :revenue_earned => 5)
     end
   end
 end
