@@ -25,11 +25,9 @@ class Carnival
   end
 
   def summary
-    total = @rides.sum do |ride|
-      ride.total_rides
-    end
-    @summary[:visitor_count] = total
-    @summary[:total_revenue] = total_revenue
-    require 'pry'; binding.pry
+    total_vis = @rides.sum { |ride| ride.total_rides }
+    @summary[:visitor_count] = total_vis
+    @summary[:revenue_earned] = total_revenue
+    @summary
   end
 end
