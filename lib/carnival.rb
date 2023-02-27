@@ -5,7 +5,7 @@ class Carnival
     @name = name
     @duration = duration
     @rides = []
-    @most_populare = Hash.new
+    @most_popular
   end
 
   def add_ride(ride)

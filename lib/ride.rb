@@ -4,7 +4,8 @@ class Ride
               :admission_fee, 
               :excitement,
               :total_revenue, 
-              :rider_log
+              :rider_log,
+              :total_rides
 
   def initialize(ride_details)
     @name = ride_details[:name]
@@ -13,12 +14,14 @@ class Ride
     @excitement = ride_details[:excitement]
     @total_revenue = 0
     @rider_log = Hash.new(0)
+    @total_rides = Hash.new(0)
   end
 
   def board_rider(visitor)
     if has_preference?(visitor) && meets_height_requirements(visitor)
       @rider_log[visitor] += 1
       take_payment(visitor)
+      add_ride_count
       @total_revenue += admission_fee
     end
   end
@@ -33,5 +36,10 @@ class Ride
 
   def take_payment(visitor)
     visitor.spending_money -= @admission_fee
+  end
+
+  def add_ride_count
+    @total_rides[@name] += 1
+    @total_rides
   end
 end
