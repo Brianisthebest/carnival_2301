@@ -64,14 +64,28 @@ RSpec.describe Carnival do
       @carnival.add_ride(@ride1)
       @carnival.add_ride(@ride3)
       @visitor1.add_preference(:gentle)
-      @visitor2.add_preference(:gentle)
-      @visitor2.add_preference(:thrilling)
+      @visitor3.add_preference(:gentle)
+      @visitor3.add_preference(:thrilling)
       @ride1.board_rider(@visitor1)
-      @ride1.board_rider(@visitor2)
+      @ride1.board_rider(@visitor3)
       @ride1.board_rider(@visitor1)
-      @ride3.board_rider(@visitor2)
-      @carnival.most_popular_ride
+      @ride3.board_rider(@visitor3)
       expect(@carnival.most_profitable_ride).to eq(@ride1)
+    end
+  end
+
+  describe '#total_revenue' do
+    it 'can calculate the total revenue for all rides' do
+      @carnival.add_ride(@ride1)
+      @carnival.add_ride(@ride3)
+      @visitor1.add_preference(:gentle)
+      @visitor3.add_preference(:gentle)
+      @visitor3.add_preference(:thrilling)
+      @ride1.board_rider(@visitor1)
+      @ride1.board_rider(@visitor3)
+      @ride1.board_rider(@visitor1)
+      @ride3.board_rider(@visitor3)
+      expect(@carnival.total_revenue).to eq(5)
     end
   end
 end
