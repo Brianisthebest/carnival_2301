@@ -12,22 +12,14 @@ class Carnival
   end
 
   def most_popular_ride
-    most_pop = @rides.max_by do |ride|
-      ride.total_rides
-    end
-    most_pop
+    most_pop = @rides.max_by { |ride| ride.total_rides }
   end
 
   def most_profitable_ride
-    most_prof = @rides.max_by do |ride|
-      ride.total_revenue
-    end
-    most_prof
+    most_prof = @rides.max_by { |ride| ride.total_revenue }
   end
 
   def total_revenue
-    @rides.sum do |ride|
-      ride.total_revenue
-    end
+    @rides.sum { |ride| ride.total_revenue }
   end
 end

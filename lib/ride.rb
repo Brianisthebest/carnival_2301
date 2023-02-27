@@ -22,7 +22,7 @@ class Ride
       @rider_log[visitor] += 1
       take_payment(visitor)
       add_ride_count
-      @total_revenue += admission_fee
+      update_total_revenue
     end
   end
 
@@ -40,5 +40,9 @@ class Ride
 
   def add_ride_count
     @total_rides += 1
+  end
+
+  def update_total_revenue
+    @total_revenue += admission_fee
   end
 end

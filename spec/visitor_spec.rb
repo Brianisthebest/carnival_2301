@@ -17,6 +17,13 @@ RSpec.describe Visitor do
     end
   end
 
+  describe '#adjust_spending_money' do
+    it 'takes in a string and returns an integer' do
+      expect(@visitor1.adjust_spending_money('$10')).to eq(10)
+      expect(@visitor1.adjust_spending_money('$40')).to eq(40)
+    end
+  end
+
   describe '#add_preference' do
     it 'can add a preference' do
       expect(@visitor1.preferences).to eq([])

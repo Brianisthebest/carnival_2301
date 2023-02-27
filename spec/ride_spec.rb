@@ -88,7 +88,7 @@ RSpec.describe Ride do
     end
   end
 
-  describe '@add_ride_count' do
+  describe '#add_ride_count' do
     it 'adds to the count for each time ridden' do
       expect(@ride1.add_ride_count).to eq(1)
       expect(@ride1.add_ride_count).to eq(2)

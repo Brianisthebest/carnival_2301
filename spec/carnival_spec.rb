@@ -88,4 +88,12 @@ RSpec.describe Carnival do
       expect(@carnival.total_revenue).to eq(5)
     end
   end
+
+  describe '#summary_hash' do
+    it 'returns a hash for the summary' do
+      # visitor_count => interger
+      # revenue_earned => amount
+      # list of visitors =>
+    end
+  end
 end
