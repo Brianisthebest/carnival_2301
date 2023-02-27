@@ -1,6 +1,7 @@
 require 'rspec'
 require './lib/visitor'
 require './lib/ride'
+require './lib/carnival'
 
 RSpec.describe Carnival do
   before(:each) do
