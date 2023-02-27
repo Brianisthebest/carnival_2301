@@ -100,9 +100,9 @@ RSpec.describe Carnival do
       @ride1.board_rider(@visitor3)
       @ride1.board_rider(@visitor1)
       @ride3.board_rider(@visitor3)
-      # visitor_count => interger
-      # revenue_earned => amount
+
       expect(@carnival.summary).to eq(:visitor_count => 3, :revenue_earned => 5)
+      # then add list of visitors and their fav ride and money spent
     end
   end
 end

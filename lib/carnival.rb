@@ -5,6 +5,7 @@ class Carnival
     @name = name
     @duration = duration
     @rides = []
+    @summary = Hash.new
   end
 
   def add_ride(ride)
@@ -21,5 +22,14 @@ class Carnival
 
   def total_revenue
     @rides.sum { |ride| ride.total_revenue }
+  end
+
+  def summary
+    total = @rides.sum do |ride|
+      ride.total_rides
+    end
+    @summary[:visitor_count] = total
+    @summary[:total_revenue] = total_revenue
+    require 'pry'; binding.pry
   end
 end
